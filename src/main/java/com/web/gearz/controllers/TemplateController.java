@@ -3,6 +3,7 @@ package com.web.gearz.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,8 +22,9 @@ public class TemplateController {
 	}
 	
 	@RequestMapping(value="/getTemplate",method=RequestMethod.GET)
-	public ModelAndView getTemplate(){
+	public ModelAndView getTemplate(@RequestParam("userId") int userId,@RequestParam("templateId") short templateId){
 		ModelAndView mav = new ModelAndView("sample");
+		
 		return mav;
 	}
 

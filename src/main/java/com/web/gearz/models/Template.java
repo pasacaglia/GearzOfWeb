@@ -1,9 +1,13 @@
 package com.web.gearz.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Template {
 	
 	private int id;
 	private String name;
+	private List<String> divIds = new ArrayList<String>();
 	public int getId() {
 		return id;
 	}
@@ -15,6 +19,12 @@ public class Template {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setDivIds(List<String> divIds) {
+		this.divIds = divIds;
+	}
+	public List<String> getDivIds() {
+		return divIds;
 	}
 
 }
