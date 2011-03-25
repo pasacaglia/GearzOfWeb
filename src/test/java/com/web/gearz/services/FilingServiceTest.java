@@ -9,7 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.mongodb.MongoException;
-
+/**
+ * These tests need a local instance of your mongo running..
+ * @author sajit
+ *
+ */
 public class FilingServiceTest {
 
 	
@@ -85,6 +89,22 @@ public class FilingServiceTest {
 		filingService.storeContent(1, "div1", "<h1><a>Joe</a><h1>");
 		Assert.assertEquals(2L, FilingService.getCollection().getCount());
 		
+	}
+	
+	@Test
+	public void shouldRetrieveDefaultText() throws MongoException, UnknownHostException{
+		
+		Assert.assertEquals("Default Text",filingService.getContent(0, "diuv"));
+	}
+	
+	@Test
+	public void shouldRetrieveStoredContent() throws MongoException, UnknownHostException{
+		String content = "<h1>bBill</h1>";
+		filingService.storeContent(0, "div", "<h1>bBill</h1>");
+		
+		String retrievedContent = filingService.getContent(0, "div");
+		
+		Assert.assertEquals(content, retrievedContent);
 	}
 	@After
 	public void tearDown() throws MongoException, UnknownHostException{

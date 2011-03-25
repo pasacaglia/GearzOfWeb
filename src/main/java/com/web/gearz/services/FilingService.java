@@ -55,18 +55,10 @@ public class FilingService {
     	}
     	return coll;
     }
-//    public FilingService(String dbInj,String hostInj){
-//    	host = hostInj;
-//    	db = dbInj;
-//    }
+
 	public void storeContent(int userId,String divId,String content) throws MongoException, UnknownHostException{
 		DBCollection dbCollection = getCollection();
-		assert dbCollection != null;
-		BasicDBObject searchKey = new BasicDBObject();
-		searchKey.append("userId", userId);
-		searchKey.append("divId",divId);
-		searchKey.markAsPartialObject();
-		DBCursor cursor = dbCollection.find(searchKey);
+		DBCursor cursor = getDBObject(dbCollection,userId,divId);
 		BasicDBObject mongoDBObject;
 		if(cursor.count()>0){
 			 mongoDBObject = (BasicDBObject)cursor.next();
@@ -78,12 +70,32 @@ public class FilingService {
 		}
 		mongoDBObject.put("content", content);
 		//dbCollection.find(ref, keys);
+		
 		dbCollection.insert(mongoDBObject);
 	}
 	
-	public String getContent(int userId, String divId){
+
+	public String getContent(int userId,String divId) throws MongoException, UnknownHostException{
+		String response = "Default Text";
+		DBCollection dbCollection = getCollection();
+		DBCursor cursor = getDBObject(dbCollection,userId,divId); 
+		if(cursor.count()>0){
+			BasicDBObject dbObj = (BasicDBObject)cursor.next();
+			return (String)dbObj.get("content");
+		}
+		return response;
+	}
+
+	
+	private DBCursor getDBObject(DBCollection dbCollection,int userId,String divId) throws MongoException, UnknownHostException{
 		
-		return null;
+		assert dbCollection != null;
+		BasicDBObject searchKey = new BasicDBObject();
+		searchKey.append("userId", userId);
+		searchKey.append("divId",divId);
+		searchKey.markAsPartialObject();
+		DBCursor cursor = dbCollection.find(searchKey);
+		return cursor;
 	}
 
 }
