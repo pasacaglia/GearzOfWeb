@@ -21,11 +21,19 @@ public class UserController {
 		return mav;
 	}
 
-//	@RequestMapping(value="/getDomain",method=RequestMethod.GET)
-//	public ModelAndView getDomain(@RequestParam("domainId") int domainId){
-//		String getTemplate = 
-//		ModelAndView mav = new ModelAndView()
-//	}
+	@RequestMapping(value="/getDomain",method=RequestMethod.GET)
+	public ModelAndView getDomain(@RequestParam("domainId") int domainId){
+		String templateName = getTemplate(domainId);
+		ModelAndView mav = new ModelAndView(templateName);
+		mav.getModel().put("domain", mockDomain( ));
+		return mav;
+	}
+	private String getTemplate(int domainId) {
+		// TODO Change to a real method
+		
+		return "sample";
+	}
+
 	private List<Domain> getDomains(int userId) {
 		// TODO Change to a real method
 		List<Domain> userDomains = new ArrayList<Domain>();

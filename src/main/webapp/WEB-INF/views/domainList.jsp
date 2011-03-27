@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:forEach var="domain" items="${domains}" >
-		<a href="/getDomain?domainId=${domain.id }"><c:out value="${domain.domainName }"></c:out></a><br/>
+		<a href="<%= request.getContextPath() %>/getDomain?domainId=${domain.id }"><c:out value="${domain.domainName }"></c:out></a><br/>
 	</c:forEach>
 </body>
 </html>

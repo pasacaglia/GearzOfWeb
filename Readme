@@ -1,0 +1,6 @@
+Since json lib is a bitch, we first need to download it
+then run the maven install command 
+
+mvn install:install-file -DgroupId=net.sf.json-lib -DartifactId=json-lib -Dversion=2.4 -Dpackaging=jar -Dfile=
+
+then doing mvn eclipse:eclipse should remove the problems in eclipse

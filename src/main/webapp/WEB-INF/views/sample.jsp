@@ -5,8 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sample Template</title>
+<script type="text/javascript">
+	var domainId = "${domain.id}";
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath() %>/resources/jquery-ui-1.8.11.custom.min.js"></script>
 </head>
 <body>
-	
+	<input id="div1_editbutton_id" type="button" value="Edit Me" /><div id="template1_div1"> <b>Some text 1 </b></div>
+	<div id="template2_div2"> <i>Some text 2 </i></div>
+
+<div id="contentDialog" style="display:none">
+	<input id="contentTextId" type="text" />
+	<input id="dialogbutton" type="button" value="save"/>
+</div>
+<script type="text/javascript" src="<%= request.getContextPath() %>/resources/templatehelper.js"></script>
 </body>
 </html>
