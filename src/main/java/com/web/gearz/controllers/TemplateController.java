@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mongodb.MongoException;
 //import com.web.gearz.client.model.JSONView;
+import com.web.gearz.client.model.JSONView;
 import com.web.gearz.models.User;
 import com.web.gearz.services.FilingService;
 
@@ -32,11 +33,12 @@ public class TemplateController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/storeDivContent",method=RequestMethod.POST)
 	public ModelAndView postContent(@RequestParam("domainId") int domainId,@RequestParam("divId") String divId,
 			@RequestParam("content") String divContent){
 		ModelAndView mav = new ModelAndView();
-		//mav.setView(new JSONView());
-		boolean response = false;
+		mav.setView(new JSONView());
+		boolean response = true;
 		try {
 			filingService.storeContent(domainId, divId, divContent);
 			response = true;

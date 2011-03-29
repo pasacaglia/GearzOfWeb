@@ -4,18 +4,26 @@
       <string>currentBuild</string>
       <path-set>
         <pathsSet class="linked-hash-set">
+          <string>resources/jquery-1.5.1.js</string>
+          <string>resources/jquery-ui-1.8.11.custom.min.js</string>
+          <string>resources/jquery.form.js</string>
+          <string>resources/templatehelper.js</string>
           <string>WEB-INF/app.properties</string>
           <string>WEB-INF/spring/appServlet/controllers.xml</string>
           <string>WEB-INF/spring/appServlet/services.xml</string>
           <string>WEB-INF/spring/appServlet/servlet-context.xml</string>
           <string>WEB-INF/spring/root-context.xml</string>
+          <string>WEB-INF/views/domainList.jsp</string>
           <string>WEB-INF/views/home.jsp</string>
           <string>WEB-INF/views/sample.jsp</string>
           <string>WEB-INF/views/templateList.jsp</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/builddef.lst</string>
+          <string>WEB-INF/classes/com/web/gearz/client/model/JSONView.class</string>
           <string>WEB-INF/classes/com/web/gearz/controllers/TemplateController.class</string>
+          <string>WEB-INF/classes/com/web/gearz/controllers/UserController.class</string>
           <string>WEB-INF/classes/com/web/gearz/HomeController.class</string>
+          <string>WEB-INF/classes/com/web/gearz/models/Domain.class</string>
           <string>WEB-INF/classes/com/web/gearz/models/Template.class</string>
           <string>WEB-INF/classes/com/web/gearz/models/User.class</string>
           <string>WEB-INF/classes/com/web/gearz/services/FilingService.class</string>
@@ -41,6 +49,8 @@
           <string>WEB-INF/lib/jstl-1.2.jar</string>
           <string>WEB-INF/lib/mongo-java-driver-1.3.jar</string>
           <string>WEB-INF/lib/commons-logging-1.0.4.jar</string>
+          <string>WEB-INF/lib/jettison-1.2.jar</string>
+          <string>WEB-INF/lib/stax-api-1.0.1.jar</string>
         </pathsSet>
       </path-set>
     </entry>
@@ -255,6 +265,18 @@
         <optional>false</optional>
       </dependency>
       <targetFileName>commons-logging-1.0.4.jar</targetFileName>
+    </org.apache.maven.plugin.war.util.DependencyInfo>
+    <org.apache.maven.plugin.war.util.DependencyInfo>
+      <dependency>
+        <groupId>org.codehaus.jettison</groupId>
+        <artifactId>jettison</artifactId>
+        <version>1.2</version>
+        <type>jar</type>
+        <scope>compile</scope>
+        <exclusions/>
+        <optional>false</optional>
+      </dependency>
+      <targetFileName>jettison-1.2.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
   </dependenciesInfo>
 </webapp-structure>

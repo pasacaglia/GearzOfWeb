@@ -10,14 +10,19 @@ $(document).ready(function() {
 		var content = $('#contentTextId').val();
 		$.ajax({
 			  type: 'POST',
-			  url: url,
+			  url: '/WebGearz/storeDivContent',
 			  data: {'domainId':domainId,'divId':currentDiv,'content':content},
-			  success: function(data){doSomething(data);},
+			  success: function(data){doSomething(data,content,currentDiv);},
 			  dataType: 'json'
 			});
 	});
 });
 
-var doSomething = function(data){
-	$(currentDiv).html(data.content);
+var doSomething = function(data,content,currentDiv){
+	
+	$('#contentDialog').dialog('close');
+	if(data.success==true){
+		$(currentDiv).html(content);
+	}
+	
 }

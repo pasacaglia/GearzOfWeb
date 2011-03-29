@@ -8,7 +8,7 @@
 <script type="text/javascript">
 	var domainId = "${domain.id}";
 </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-1.5.1.js"></script>
 <script type="text/javascript" src="<%= request.getContextPath() %>/resources/jquery-ui-1.8.11.custom.min.js"></script>
 </head>
 <body>

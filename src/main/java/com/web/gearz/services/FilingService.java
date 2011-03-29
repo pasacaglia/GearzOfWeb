@@ -34,8 +34,8 @@ public class FilingService {
 		FilingService.db = db;
 	}
 
-	private static String host;
-	private static String db;
+	private static String host = "127.0.0.1";
+	private static String db = "wb_test";
 	
 	private static DBCollection coll = null;
 	private static final String COLLECTION_NAME = "divContents";
